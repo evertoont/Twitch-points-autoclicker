@@ -2,5 +2,8 @@
   "name": "twitch-points-autoclicker",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer-core": "^8.0.0"
+  }
 }
