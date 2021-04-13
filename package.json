@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "puppeteer-core": "^8.0.0"
+    "puppeteer-core": "^8.0.0",
+    "readline-sync": "^1.4.10"
   }
 }
