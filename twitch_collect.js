@@ -4,6 +4,8 @@ const PROFILE_PATH = `${process.env['USERPROFILE']}\\AppData\\Local\\Google\\Chr
 const puppeteer = require("puppeteer-core");
 const readlineSync = require("readline-sync");
 
+let channel = readlineSync.question("https://www.twitch.tv/");
+
 async function openBrowser() {
   const browser = await puppeteer.launch({
     headless: false,
@@ -15,7 +17,7 @@ async function openBrowser() {
 
   const page = await browser.newPage();
   page.setDefaultNavigationTimeout(0);
-  await page.goto('https://www.twitch.tv/');
+  await page.goto(`https://www.twitch.tv/${channel}`);
 
 }
 
