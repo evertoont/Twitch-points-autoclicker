@@ -3,7 +3,9 @@ const PROFILE_PATH = `${process.env["USERPROFILE"]}\\AppData\\Local\\Google\\Chr
 
 const puppeteer = require("puppeteer-core");
 const readlineSync = require("readline-sync");
+const introduction = require("./introduction_text");
 
+introduction();
 let channel = readlineSync.question("https://www.twitch.tv/");
 let amountOfCollect = 0;
 
@@ -22,37 +24,40 @@ async function openBrowser() {
 
   console.log("Waiting to collect...");
 
-  startCollect(page)
+  startCollect(page);
 }
 
-async function collectPoints(page) { {
-  return await page.evaluate(async () => {
-      return await new Promise(resolve => {
+async function collectPoints(page) {
+  {
+    return await page.evaluate(async () => {
+      return await new Promise((resolve) => {
         setTimeout(() => {
           let chestPoints = document.querySelector(".community-points-summary .tw-z-above button.tw-button");
           if (chestPoints) {
             chestPoints.click();
-            resolve(true)
-          }else{
-            location.reload()
+            resolve(true);
+          } else {
+            location.reload();
             resolve(false);
-          }          
-        }, 960000)
-    })
-  })
-}  
+          }
+        }, 960000);
+      });
+    });
+  }
 }
 
 async function startCollect(page) {
-  await page.waitForTimeout(10000)
+  await page.waitForTimeout(10000);
   statusPoints = await collectPoints(page);
-  printStatusCollect(statusPoints, page)
+  printStatusCollect(statusPoints, page);
 }
 
 function printStatusCollect(statusPoints, page) {
   if (statusPoints) {
-    console.log(`[${(amountOfCollect += 1)}] Bonus Chest Clicked. ` + timeString());
-  }else{
+    console.log(
+      `[${(amountOfCollect += 1)}] Bonus Chest Clicked. ` + timeString()
+    );
+  } else {
     console.log("Chest Unavailable " + timeString());
   }
 
