@@ -1,4 +1,5 @@
-const CHROME_PATH = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
+const CHROME_PATH =
+  "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
 const PROFILE_PATH = `${process.env["USERPROFILE"]}\\AppData\\Local\\Google\\Chrome\\User Data`;
 
 const puppeteer = require("puppeteer-core");
@@ -9,7 +10,7 @@ let amountOfCollect = 0;
 
 async function openBrowser() {
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
     defaultViewport: null,
     executablePath: CHROME_PATH,
     userDataDir: PROFILE_PATH,
@@ -19,23 +20,58 @@ async function openBrowser() {
   const page = await browser.newPage();
   page.setDefaultNavigationTimeout(0);
   await page.goto(`https://www.twitch.tv/${channel}`);
+  // await page.addScriptTag({ path: "functions.js" });
 
   console.log("Waiting to collect...");
 
-  collectPoints(page);
+  teste2(page)
 }
 
-async function collectPoints(page) {
-  setInterval(() => {
-    page.evaluate(() => {
-      let chestPoints = document.querySelector(
-        ".community-points-summary .tw-z-above button.tw-button"
-      );
-      chestPoints.click();
-    });
+async function collectPoints(page) { {
+  return await page.evaluate(async () => {
+      return await new Promise(resolve => {
+        setTimeout(() => {
+          let chestPoints = document.querySelector(".community-points-summary .tw-z-above button.tw-button");
+          if (chestPoints) {chestPoints.click();}
+          
+          resolve(chestPoints);
+        }, 8000)
+    })
+  })
+}  
+}
 
-    console.log(`[${amountOfCollect += 1}] Bonus Chest Clicked. ` + timeString());
-  }, 960000);
+// function collectPoints(page) {
+//   return await page.evaluate(async () => {
+//     return await new Promise(resolve => {
+//       setTimeout(() => {
+//         let chestPoints = document.querySelector(
+//           ".community-points-summary .tw-z-above button.tw-button"
+//         );
+
+//         if (chestPoints) {
+//           chestPoints.click();
+//         }
+//       }, 8000);
+//     }
+//   },)
+// }
+
+async function teste2(page) {
+  x = await collectPoints(page);
+  teste(x, page)
+}
+
+function teste(x, page) {
+  if (x) {
+    console.log(
+      `[${(amountOfCollect += 1)}] Bonus Chest Clicked. ` + timeString()
+    );
+    teste2(page);
+  } else {
+    console.log("Chest Unavailable " + timeString());
+    teste2(page);
+  }
 }
 
 function timeString() {
