@@ -20,11 +20,10 @@ async function openBrowser() {
   const page = await browser.newPage();
   page.setDefaultNavigationTimeout(0);
   await page.goto(`https://www.twitch.tv/${channel}`);
-  // await page.addScriptTag({ path: "functions.js" });
 
   console.log("Waiting to collect...");
 
-  teste2(page)
+  startCollect(page)
 }
 
 async function collectPoints(page) { {
@@ -35,7 +34,7 @@ async function collectPoints(page) { {
           if (chestPoints) {chestPoints.click();}
           
           resolve(chestPoints);
-        }, 8000)
+        }, 960000)
     })
   })
 }  
@@ -57,21 +56,19 @@ async function collectPoints(page) { {
 //   },)
 // }
 
-async function teste2(page) {
-  x = await collectPoints(page);
-  teste(x, page)
+async function startCollect(page) {
+  statusPoints = await collectPoints(page);
+  printStatusCollct(statusPoints, page)
 }
 
-function teste(x, page) {
-  if (x) {
-    console.log(
-      `[${(amountOfCollect += 1)}] Bonus Chest Clicked. ` + timeString()
-    );
-    teste2(page);
-  } else {
-    console.log("Chest Unavailable " + timeString());
-    teste2(page);
-  }
+function printStatusCollct(statusPoints, page) {
+  if (statusPoints) {
+    console.log(`[${(amountOfCollect += 1)}] Bonus Chest Clicked. ` + timeString());
+    startCollect(page);
+  } 
+
+  console.log("Chest Unavailable " + timeString());
+  startCollect(page);
 }
 
 function timeString() {
