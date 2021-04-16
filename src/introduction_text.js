@@ -6,6 +6,7 @@ const introduction = () => {
     console.log("Note:");
     console.log("[1] Don't forget to configure your chrome browser directory in the src/twitch_collect.js folder");
     console.log("[2] You must be logged into your twitch account for points to be collected.");
+    console.log('[3] If you see the message "Chest Unavailable" 3 times in a row, restart the script.');
     console.log("");
 }
 
