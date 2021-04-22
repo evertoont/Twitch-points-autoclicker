@@ -33,12 +33,14 @@ async function collectPoints(page) {
       return await new Promise((resolve) => {
         setTimeout(() => {
           let chestPoints = document.querySelector(".community-points-summary .tw-z-above button.tw-button");
+          let amountPoints = document.querySelector(".lasupS").innerText
+
           if (chestPoints) {
             chestPoints.click();
-            resolve(true);
+            resolve([true, amountPoints]);
           } else {
             location.reload();
-            resolve(false);
+            resolve([false, amountPoints]);
           }
         }, 960000);
       });
@@ -53,12 +55,12 @@ async function startCollect(page) {
 }
 
 function printStatusCollect(statusPoints, page) {
-  if (statusPoints) {
+  if (statusPoints[0]) {
     console.log(
-      `[${(amountOfCollect += 1)}] Bonus Chest Clicked. ` + timeString()
+      `[${(amountOfCollect += 1)}] Bonus Chest Clicked, ${statusPoints[1]} points. ` + timeString()
     );
   } else {
-    console.log("Chest Unavailable " + timeString());
+    console.log("Chest Unavailable. " + timeString());
   }
 
   startCollect(page);
