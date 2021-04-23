@@ -57,7 +57,7 @@ async function startCollect(page) {
 function printStatusCollect(statusPoints, page) {
   if (statusPoints[0]) {
     console.log(
-      `[${(amountOfCollect += 1)}] Bonus Chest Clicked, ${statusPoints[1]} points. ` + timeString()
+      `[${(amountOfCollect += 1)}] Bonus Chest Clicked. ${statusPoints[1]} points. ` + timeString()
     );
   } else {
     console.log("Chest Unavailable. " + timeString());
