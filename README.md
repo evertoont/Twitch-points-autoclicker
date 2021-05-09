@@ -26,8 +26,8 @@ Twitch Points Autoclicker
 
 - Clone this repository on your machine:
 
-```
-git clone https://github.com/evertoont/Twitch-points-autoclicker
+```bash
+$ git clone https://github.com/evertoont/Twitch-points-autoclicker
 ```
 
 - You can also just download directly from Github
@@ -35,15 +35,15 @@ git clone https://github.com/evertoont/Twitch-points-autoclicker
 #### Setup
 
 1. Install project dependencies
-   - ```javascript
-       yarn install
+   - ```bash
+       $ yarn install
        // or
-       npm install
+       $ npm install
      ```
 2. Enter the `src` directory
 
-   - ```
-       cd src/
+   - ```bash
+       $ cd src/
      ```
 
    - Modify the following lines in the twitch_collect.js file, if necessary.
@@ -54,8 +54,8 @@ git clone https://github.com/evertoont/Twitch-points-autoclicker
 
 3. Run the file `twitch_collect.js`
 
-   - ```javascript
-       node twitch_collect.js
+   - ```bash
+       $ node twitch_collect.js
      ```
 
 ## 📝 License
