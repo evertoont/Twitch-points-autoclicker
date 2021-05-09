@@ -66,6 +66,6 @@ For more information, see the [LICENSE](LICENSE)
 
 ---
 
-<p align="center">Made with 💻 by Everton Reis</p>
+<p align="center">Made with 💻 by <a href="https://www.linkedin.com/in/evertoont/">Everton Reis</a></p>
 
 <p align="center">Want to help build this repository? Submit a pull request with your contribution 😉</p>
