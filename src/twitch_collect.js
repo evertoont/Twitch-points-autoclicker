@@ -32,7 +32,7 @@ async function collectPoints(page) {
     return await page.evaluate(async () => {
       return await new Promise((resolve) => {
         setTimeout(() => {
-          let chestPoints = document.querySelector(".community-points-summary .tw-z-above button.tw-button");
+          let chestPoints = document.querySelector(".community-points-summary > *:nth-child(2) button");
           let amountPoints = document.querySelector(".lasupS").innerText
 
           if (chestPoints) {
