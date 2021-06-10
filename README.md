@@ -1,6 +1,6 @@
 <h1 align="center">
 Twitch Points Autoclicker 
-    <img alt="Move.it Logo" src="https://user-images.githubusercontent.com/55769021/114955335-e3109400-9e32-11eb-9a40-625ef06aff13.png" />
+    <img alt="gid project" src="https://user-images.githubusercontent.com/55769021/114955335-e3109400-9e32-11eb-9a40-625ef06aff13.png" />
 </h1>
 
 <p align="center">Script to collect channel points on twitch automatically. Without having to keep the browser open.</p>
