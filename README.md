@@ -40,17 +40,14 @@ $ git clone https://github.com/evertoont/Twitch-points-autoclicker
        // or
        $ npm install
      ```
-2. Enter the `src` directory
+2. open `env.js` file
 
-   - ```bash
-       $ cd src/
-     ```
-
-   - Modify the following lines in the twitch_collect.js file, if necessary.
-     - ```javascript
-         const CHROME_PATH = Add the path to the google chrome directory
-         const PROFILE_PATH = Add the path to the google chrome user profile directory. Follow the code example.
-       ```
+- Add crediantials in `usernameTwitch` and `passwordTwitch`
+- Modify the following lines, if necessary.
+  - ```javascript
+      const CHROME_PATH_WINDOWS = Add the path to the google chrome directory WINDOWS
+      const CHROME_PATH_LINUX = Add the path to the google chrome directory LINUX.
+    ```
 
 3. Run the file `twitch_collect.js`
 
