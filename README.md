@@ -36,9 +36,7 @@ $ git clone https://github.com/evertoont/Twitch-points-autoclicker
 
 1. Install project dependencies
    - ```bash
-       $ yarn install
-       // or
-       $ npm install
+       $ yarn
      ```
 2. open `env.js` file
 

@@ -6,5 +6,9 @@
   "dependencies": {
     "puppeteer": "^15.1.1",
     "readline-sync": "^1.4.10"
+  },
+  "engines": {
+    "npm": "Ops! Please use Yarn",
+    "yarn": ">=1.20.0"
   }
 }
